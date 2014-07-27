@@ -1,0 +1,2 @@
+module SixpackHelper
+end
