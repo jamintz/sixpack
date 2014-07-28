@@ -2,13 +2,97 @@
 <html>
   <head>
     <title>Sixpack</title>
-    <style type="text/css" media="screen">
-      body {
-
+    <style>
+      header {
+          text-align:center;
+          color:black;
+          margin-top: 200px;
+          font-family: "Abadi MT Condensed Light","Bell MT", "Gill Sans", Arial, serif;
       }
+
+      div[id^="spot"] {
+          display: inline-block;
+          width: 85px;
+          height: 85px;
+          margin: 10px;
+          border: solid 2px;
+      }
+
+      .pics, .pack
+      {
+       text-align:center;}
+
     </style>
+    <script>
+        function dragIt(theEvent) {
+            theEvent.dataTransfer.setData("Text", theEvent.target.id);
+        }
+        function dropIt(theEvent) {
+            var theData = theEvent.dataTransfer.getData("Text");
+            var theDraggedElement = document.getElementById(theData);
+            theEvent.target.appendChild(theDraggedElement);
+            theEvent.preventDefault();
+        }
+    </script>
   </head>
   <body>
-    <h1>Hi Jason!</h1>
+    <header>
+    <h1>JASON'S SIXPACK</h1>
+    </header>
+
+    <div class="pics">
+            <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+                <img src="assets/pic1.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="pic1" />
+            </div>
+            <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+                <img src="assets/pic2.jpg" width="80" height="80"  draggable="true" ondragstart="dragIt(event);" id="pic2" />
+            </div>
+            <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+                <img src="assets/pic3.jpg" width="80" height="80"  draggable="true" ondragstart="dragIt(event);" id="pic3" />
+            </div>
+            <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+                <img src="assets/pic4.jpg" width="80" height="80"  draggable="true" ondragstart="dragIt(event);" id="pic4" />
+            </div>
+            <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+                <img src="assets/pic5.jpg" width="80" height="80"  draggable="true" ondragstart="dragIt(event);" id="pic5" />
+            </div>
+            <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+                <img src="assets/pic6.jpg" width="80" height="80"  draggable="true" ondragstart="dragIt(event);" id="pic6" />
+            </div>
+    </div>
+    <div class = "pack">
+        <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+            <div  draggable="true" ondragstart="dragIt(event);"/>
+            1
+            </div>
+        </div>
+        <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+            <div  draggable="true" ondragstart="dragIt(event);"/>
+            2
+            </div>
+         </div>
+        <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+            <div  draggable="true" ondragstart="dragIt(event);"/>
+            3
+        </div>
+        </div>
+        <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+            <div  draggable="true" ondragstart="dragIt(event);"/>
+            4
+        </div>
+        </div>
+        <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+            <div  draggable="true" ondragstart="dragIt(event);"/>
+            5
+        </div>
+        </div>
+        <div id="spot" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+            <div  draggable="true" ondragstart="dragIt(event);"/>
+            6
+        </div>
+        </div>
+     </div>
+
+
   </body>
 </html>
