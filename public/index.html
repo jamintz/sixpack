@@ -1,118 +1,61 @@
 
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<html>
 <head>
-    <title>Sixpack</title>
-    <style>
-        .spot {
-            margin:10px;
-            display:inline-block;
-        }
-        header {
-            text-align: center;
-            font-size: 80px;
-            margin-top: 200px;
-            font-family: "Abadi MT Condensed Light","Bell MT", "Gill Sans", Arial, serif;
-        }
-        #starts{
-            text-align:center;
-        }
+    <style type="text/css">
+        /*styling here*/
+        div[id^="place"]
+        {float:left; width:80px; height:80px; margin:3px; padding:3px; border:1px dotted #333333; background-color:#ffff99;}
+        span
+        {float:left; width:80px; margin:3px; padding:3px; border:1px solid #999999; color:#333333;}
+        .pics, .nums
+        {clear:both; text-align:center;}
     </style>
-
+    <script type="text/javascript">
+        //function called when drag starts
+        function dragIt(theEvent) {
+//tell the browser what to drag
+            theEvent.dataTransfer.setData("Text", theEvent.target.id);
+        }
+        //function called when element drops
+        function dropIt(theEvent) {
+//get a reference to the element being dragged
+            var theData = theEvent.dataTransfer.getData("Text");
+//get the element
+            var theDraggedElement = document.getElementById(theData);
+//add it to the drop element
+            theEvent.target.appendChild(theDraggedElement);
+//instruct the browser to allow the drop
+            theEvent.preventDefault();
+        }
+    </script>
 </head>
 <body>
-<header>JASON'S PACK</header>
 
-<div id="starts">
-    <div class="spot"><img src="assets/pic1.jpg"></div>
-    <div class="spot"><img src="assets/pic2.jpg"></div>
-    <div class="spot"><img src="assets/pic3.jpg"></div>
-    <div class="spot"><img src="assets/pic4.jpg"</div>
-    <div class="spot"><img src="assets/pic5.jpg"></div>
-    <div class="spot"><img src="assets/pic6.jpg"></div>
+<!--element with draggable pictures-->
+<div class="pics">
+    <div id="place1" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+        <img src="assets/pic1.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="pic1" />
+    </div>
+    <div id="place2" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+        <img src="assets/pic2.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="pic2" />
+    </div>
+    <div id="place3" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+    </div>
+    <div id="place4" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+    </div>
+    <div id="place5" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+    </div>
 </div>
 
-
-
-<div id="ends">
-    <div class="spot">1</div>
-    <div class="spot">2</div>
-    <div class="spot">3</div>
-    <div class="spot">4</div>
-    <div class="spot">5</div>
-    <div class="spot">6</div>
+<!--informative numbers-->
+<div class="nums">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
 </div>
 
-<script>
-
-var samples = samples || {};
-
-(function() {
-    var id_ = 'starts';
-    var cols_ = document.querySelectorAll('#' + id_ + ' .spot');
-    var dragSrcEl_ = null;
-
-    this.handleDragStart = function(e) {
-        e.dataTransfer.effectAllowed = 'move';
-        e.dataTransfer.setData('text/html', this.innerHTML);
-
-        dragSrcEl_ = this;
-
-        // this/e.target is the source node.
-        this.addClassName('moving');
-    };
-
-    this.handleDragOver = function(e) {
-        if (e.preventDefault) {
-            e.preventDefault(); // Allows us to drop.
-        }
-
-        e.dataTransfer.dropEffect = 'move';
-
-        return false;
-    };
-
-    this.handleDragEnter = function(e) {
-        this.addClassName('over');
-    };
-
-    this.handleDragLeave = function(e) {
-        // this/e.target is previous target element.
-        this.removeClassName('over');
-    };
-
-    this.handleDrop = function(e) {
-        // this/e.target is current target element.
-
-        if (e.stopPropagation) {
-            e.stopPropagation(); // stops the browser from redirecting.
-        }
-
-        // Don't do anything if we're dropping on the same spot we're dragging.
-        if (dragSrcEl_ != this) {
-            dragSrcEl_.innerHTML = this.innerHTML;
-            this.innerHTML = e.dataTransfer.getData('text/html');
-        }
-
-        return false;
-    };
-
-    this.handleDragEnd = function(e) {
-        // this/e.target is the source node.
-        [].forEach.call(cols_, function (col) {
-            col.removeClassName('over');
-            col.removeClassName('moving');
-        });
-    };
-
-    [].forEach.call(cols_, function (col) {
-        col.setAttribute('draggable', 'true');  // Enable spots to be draggable.
-        col.addEventListener('dragstart', this.handleDragStart, false);
-        col.addEventListener('dragenter', this.handleDragEnter, false);
-        col.addEventListener('dragover', this.handleDragOver, false);
-        col.addEventListener('dragleave', this.handleDragLeave, false);
-        col.addEventListener('drop', this.handleDrop, false);
-        col.addEventListener('dragend', this.handleDragEnd, false);
-    });
-})();
-</script>
 </body>
+</html>
