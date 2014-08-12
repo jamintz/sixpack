@@ -4,10 +4,22 @@
 <head>
     <style>
         /*styling here*/
-        div[id^="place"]
-        {float:left; width:80px; height:80px; margin:3px; padding:3px; border:1px dotted #333333; background-color:#ffff99;}
-        span
-        {float:left; width:80px; margin:3px; padding:3px; border:1px solid #999999; color:#333333;}
+        .place{
+            float:left;
+            width:80px;
+            height:80px;
+            margin:3px;
+            padding:3px;
+            border:1px dotted #333333;
+            background-color:#ffff99;}
+        .nums span
+        {
+            float:left;
+            width:80px;
+            margin:3px;
+            padding:3px;
+            border:1px solid #999999;
+            color:#333333;}
         .pics, .nums
         {clear:both; text-align:center;}
     </style>
@@ -36,17 +48,17 @@
 
 <!--element with draggable pictures-->
 <div class="pics">
-    <div id="place1" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+    <div class="place" ondrop="dropIt(event);" ondragover="event.preventDefault();">
         <img src="assets/pic1.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="pic1" />
     </div>
-    <div id="place2" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+    <div class="place" ondrop="dropIt(event);" ondragover="event.preventDefault();">
         <img src="assets/pic2.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="pic2" />
     </div>
-    <div id="place3" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+    <div class="place" ondrop="dropIt(event);" ondragover="event.preventDefault();">
     </div>
-    <div id="place4" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+    <div class="place" ondrop="dropIt(event);" ondragover="event.preventDefault();">
     </div>
-    <div id="place5" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+    <div class="place" ondrop="dropIt(event);" ondragover="event.preventDefault();">
     </div>
 </div>
 
