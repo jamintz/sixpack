@@ -3,31 +3,45 @@
 <head>
     <style>
         .caps {
-            height: 150px;
-            width: 150px;
-            float: left;
             border: 2px solid #666666;
             background-color: #ccc;
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            vertical-align: middle;
+            display: table-cell;
+        }
+        .starts {
+            float:left;
+        }
+        .stops {
+            float:right;
         }
     </style>
 
 </head>
 <body>
-<div id="starts">
-    <div class="caps"><img src="assets/pic1.jpg" width="80" height="80"></div>
-    <div class="caps"><header>B</header><div class="count" data-cap-moves="0"></div></div>
-    <div class="caps"><header>C</header><div class="count" data-cap-moves="0"></div></div>
-    <div class="caps"><header>D</header><div class="count" data-cap-moves="0"></div></div>
-</div>
-<div id="starts">
-    <div class="caps"></div>
-    <div class="caps"></div>
-    <div class="caps"></div>
-    <div class="caps"></div>
+<div id="spots">
+    <div class="starts">
+        <div class="caps"><img src="assets/pic1.jpg"></div>
+        <div class="caps"><img src="assets/pic2.jpg"></div>
+        <div class="caps"><img src="assets/pic3.jpg"></div>
+        <div class="caps"><img src="assets/pic4.jpg"></div>
+        <div class="caps"><img src="assets/pic5.jpg"></div>
+        <div class="caps"><img src="assets/pic6.jpg"></div>
+    </div>
+    <div class="stops">
+        1<div class="caps"></div>
+        2<div class="caps"></div>
+        3<div class="caps"></div>
+        4<div class="caps"></div>
+        5<div class="caps"></div>
+        6<div class="caps"></div>
+    </div>
 </div>
 <script>
 (function() {
-    var id_ = 'starts';
+    var id_ = 'spots';
     var caps_ = document.querySelectorAll('#' + id_ + ' .caps');
     var dragSrcEl_ = null;
 
